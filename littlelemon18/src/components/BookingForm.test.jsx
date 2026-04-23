@@ -7,7 +7,7 @@ test('checks if text exists', () => {
   render(<BookingForm />);
   
   // Exact match
-  const linkElement = screen.getByText('Reservation Form');
+  const linkElement = screen.getByText("BookingForm");
   expect(linkElement).toBeInTheDocument();
 
   // Case-insensitive partial match using Regex
