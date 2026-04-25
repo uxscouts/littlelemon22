@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useUser } from "../context/BookingContext";
 
-function BookingForm({ availableTimes, dispatch }) {
+function BookingForm({ availableTimes, dispatch, onSubmit }) {
   const { user, updateBooking } = useUser();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,7 +24,20 @@ function BookingForm({ availableTimes, dispatch }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = {
+      name,
+      email,
+      phone,
+      guests,
+      date,
+      time,
+    };
+
     updateBooking(name, email, phone, guests, date, time);
+    if (onSubmit) {
+      onSubmit(formData);
+    }
   };
 
   return (
@@ -129,7 +142,7 @@ function BookingForm({ availableTimes, dispatch }) {
               ))}
             </Input>
           </FormGroup>
-          <Button type="submit">Make Your reservation</Button>
+          <Button role="button" type="submit">Reservation</Button>
         </Form>
       </div>
     </div>
