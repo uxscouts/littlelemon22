@@ -469,7 +469,8 @@ gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-gap: 0px 0px;
   margin: 30px auto;
-  width: 700px;
+  min-width: 400px;
+  max-width: 700px;
 }
 
 .BookingForm {
@@ -481,18 +482,14 @@ gap: 2em;
 }
 
 .BookingFormContainer select {
-  background-color: #f0f0f0; /* Example background color */
-  color: #333;               /* Example text color */
-  padding: 10px;             /* Example padding */
-  border: 1px solid #ccc;    /* Example border */
-  font-size: 170%;          /* Example font size */
+  background-color:  white;
+  color: #333;               
+  padding: 10px;             
+  border: 1px solid #ccc;   
+  font-size: 170%;          
 }
 
-/* You can target option elements directly for some basic styling */
-.BookingFormContainer option {
-  background-color: white;
-  color: black;
-}
+
 
 .BookingFormContainer button {
   background-color: #ee9972;
@@ -505,4 +502,31 @@ gap: 2em;
 
 .text-center {
   text-align: center;
+}
+
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.box .timeOptions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 150px;
+  border: solid #666666 1px;
+  padding: 10px 20px;
+  margin: 10px;
+  box-shadow: 6px 6px 3px #c9c8c8;
+  border-radius: 6px;
+  font-size: 140%;
+}
+
+.box input[type='radio'] {
+  transform: scale(2);
 }

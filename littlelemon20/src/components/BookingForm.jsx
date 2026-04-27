@@ -124,6 +124,9 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
             />
           </FormGroup>
 
+
+    {/*
+
           <FormGroup>
             <Label htmlFor="time">Time</Label>
             <Input
@@ -143,6 +146,13 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               ))}
                 
             </Input>
+            </FormGroup>
+*/}
+
+
+              <FormGroup>
+            <Label htmlFor="time">Time</Label>  
+            {/*
             <div>
               {availableTimes.map((timeOption) => (
                 <button key={timeOption} value={timeOption}>
@@ -150,21 +160,23 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
                 </button>
               ))}
             </div>
-
+*/}
+              <div className="box">
               {availableTimes.map((timeOption) => (
-                  <div key={timeOption}>
-                    <label>
+                  <div key={timeOption} className="timeOptions">
                       <input
                         type="radio"
+                        id={timeOption}
+                        name="time"
                         value={timeOption}
-                        checked={selected === timeOption}
                         onChange={handleTimeChange}
+                        required
+                        aria-required="true"
                       />
                       {timeOption}
-                    </label>
                   </div>
                 ))}
-            
+                </div>
           </FormGroup>
           <Button role="button" type="submit">submit</Button>
         </Form>
