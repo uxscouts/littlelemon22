@@ -18,6 +18,9 @@ export const BookingProvider = ({ children }) => {
   // Function to update user values
   const updateBooking = (name, email, phone, guests, date, time) => {
     setUser({ name, email, phone, guests, date, time });
+
+    // see if the values are being updated correctly in the context
+    console.log('Booking updated:', { name, email, phone, guests, date, time });
   };
 
 

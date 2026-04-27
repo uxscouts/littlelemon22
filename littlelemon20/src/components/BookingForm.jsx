@@ -135,12 +135,36 @@ function BookingForm({ availableTimes, dispatch, onSubmit }) {
               required
               aria-required="true"
             >
+              
               {availableTimes.map((timeOption) => (
                 <option key={timeOption} value={timeOption}>
                   {timeOption}
                 </option>
               ))}
+                
             </Input>
+            <div>
+              {availableTimes.map((timeOption) => (
+                <button key={timeOption} value={timeOption}>
+                  {timeOption}
+                </button>
+              ))}
+            </div>
+
+              {availableTimes.map((timeOption) => (
+                  <div key={timeOption}>
+                    <label>
+                      <input
+                        type="radio"
+                        value={timeOption}
+                        checked={selected === timeOption}
+                        onChange={handleTimeChange}
+                      />
+                      {timeOption}
+                    </label>
+                  </div>
+                ))}
+            
           </FormGroup>
           <Button role="button" type="submit">submit</Button>
         </Form>

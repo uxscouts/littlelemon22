@@ -22,12 +22,6 @@ body {
 .moveyUppy {
   margin-top: -30px;
 }
-@font-face {
-  font-family: 'Markazi Text';
-  src: url('./assets/fonts/MarkaziText-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 p {
   font-size: 106%;
@@ -44,7 +38,7 @@ url("./assets/fonts/MarkaziText-SemiBold.ttf")
 }
 
 .Markazi-Bold {
-  font-family: 'Markazi Text';
+  font-family: 'Gorgia', serif;
   font-weight: bold;
 }
 
@@ -118,39 +112,39 @@ Hex Code: #A5D4DF or #B0E9FF
 
 .title_special {
 color: #212121;
-font-family: "Markazi Text",serif;
+font-family:'Georgia', serif;
 font-size: 64px;
 }
 
 
 h1, h2, h3, h4, h5, h6, label {
-   font-family: 'Markazi Text', serif;
+   font-family: 'Georgia', serif;
   font-weight: 500;
 }
 
 .markazi-text-400 {
-  font-family: 'Markazi Text', serif;
+  font-family: 'Georgia', serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 .markazi-text-500 {
-   font-family: 'Markazi Text', serif;
+   font-family: 'Georgia', serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
 
 .markazi-text-600 {
-   font-family: 'Markazi Text', serif;
+   font-family: 'Georgia', serif;
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
 }
 
 .markazi-text-700 {
-  font-family: 'Markazi Text', serif;
+  font-family: 'Georgia', serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
