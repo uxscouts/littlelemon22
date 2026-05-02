@@ -3,7 +3,7 @@ import BookingForm from "./BookingForm";
 import { fetchAPI } from "../API";
 import { submitAPI } from "../API2";
 import { useNavigate } from "react-router-dom";
-import { Form, FormGroup, Label, Input, Button, Table, Container } from "reactstrap";
+import Button from 'react-bootstrap/Button';
 
 export const updateTimes = (state, action) => {
   switch (action.type) {
@@ -66,13 +66,13 @@ const addReservation = (newBooking) => {
       console.log(reservations);
       alert("Reservation confirmed!");
      // navigate('/confirmedbooking');
-     navigate('/confirmedbooking', { state: { data: reservations } });
+    // navigate('/confirmedbooking', { state: { data: reservations } });
     }
   };
 
+
   return (
-    <main role="main"> 
-    <p><Button variant="primary">Add Another</Button></p>     
+    <main role="main">     
       <section 
         aria-live="polite" 
         aria-atomic="true"

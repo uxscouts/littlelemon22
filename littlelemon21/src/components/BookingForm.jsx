@@ -164,7 +164,8 @@ function BookingForm({
                   </div>
                 ))}
                 </div>
-          </FormGroup>                                              
+          </FormGroup>
+          <Button role="button" type="submit">Add Another</Button>                                              
           <Button role="button" type="submit">submit</Button>
         </Form>
         </div>
