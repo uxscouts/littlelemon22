@@ -53,7 +53,7 @@ function BookingForm({
   return (
     <>
     <Container className="mt-5 p-3 custom-border">
-      <h1>Reserve Form</h1>
+      <h1 id="booking-title">Reservation Form</h1>
       <div className="BookingFormContainer">
       <Table striped bordered hover>
         <thead>
@@ -86,55 +86,60 @@ function BookingForm({
           onSubmit={handleSubmit2}
         >
           <FormGroup>
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name" id="label-name">Name</Label>
             <Input 
+             id="res-name" 
               name="name" 
               type="text" 
               placeholder="Name" 
               required
-              aria-required="true" 
+              aria-required="true"
+              aria-labelledby="label-name" 
               value={name}
               onChange={(e) => setName(e.target.value)}                     
             />            
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" id="label-email">Email</Label>
             <Input 
               name="email" 
               type="text" 
               placeholder="Email" 
               required
-              aria-required="true" 
+              aria-required="true"
+              aria-labelledby="label-email"  
               value={email}
               onChange={(e) => setEmail(e.target.value)}                     
             />             
            </FormGroup>
            <FormGroup>
-            <Label htmlFor="phone">Phone</Label>
+            <Label htmlFor="phone" id="label-phone">Phone</Label>
             <Input 
               name="phone" 
               type="text" 
               placeholder="Phone" 
               required
               aria-required="true" 
+              aria-labelledby="label-phone" 
               value={phone}
               onChange={(e) => setPhone(e.target.value)}                     
             />             
            </FormGroup> 
            <FormGroup>
-            <Label htmlFor="guests">Guests</Label>
+            <Label htmlFor="guests" id="label-guests">Guests</Label>
             <Input 
               name="guests" 
               type="text" 
               placeholder="Guests" 
               required
-              aria-required="true" 
+              aria-required="true"
+              aria-labelledby="label-guests"  
               value={guests}
               onChange={(e) => setGuests(e.target.value)}                     
             />             
            </FormGroup> 
            <FormGroup>
-            <Label htmlFor="date">Date</Label>
+            <Label htmlFor="date" id="label-date">Date</Label>
             <Input 
               id="date"
               name="date" 
@@ -143,28 +148,29 @@ function BookingForm({
               value={date}
               onChange={handleDateChange}
               required
-              aria-required="true"                                  
+              aria-required="true"
+              aria-labelledby="label-date"                                   
             />             
            </FormGroup>
-            <FormGroup>
-            <Label htmlFor="time">Time</Label>  
-              <div className="box">
-              {availableTimes.map((timeOption) => (
+            <FormGroup tag="fieldset">
+              <legend>Time</legend> 
+              <div className="box" role="radiogroup" aria-label="select-time">
+                {availableTimes.map((timeOption) => (
                   <div key={timeOption} className="timeOptions">
-                      <input
-                        type="radio"
-                        id={timeOption}
-                        name="time"
-                        value={timeOption}
-                        onChange={handleTimeChange}
-                        required
-                        aria-required="true"
-                      />
-                      {timeOption}
+                    <input 
+                      type="radio" 
+                      id={timeOption} 
+                      name="time" 
+                      value={timeOption} 
+                      onChange={handleTimeChange} 
+                      aria-labelledby={timeOption}
+                      required 
+                    />
+                    <label id={timeOption} htmlFor={timeOption}>{timeOption}</label>
                   </div>
                 ))}
-                </div>
-          </FormGroup>
+              </div>
+            </FormGroup>
           <Button role="button" type="submit">Add Another</Button>                                              
           <Button role="button" type="submit">submit</Button>
         </Form>
@@ -174,4 +180,5 @@ function BookingForm({
 }
 
 export default BookingForm;
+
 
