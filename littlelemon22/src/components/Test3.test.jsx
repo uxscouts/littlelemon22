@@ -37,8 +37,22 @@ it('submits the form with correct data', async () => {
     await user.click(screen.getByRole('button', { name: /submit/i }));
 
     // 4. Assertions
-    expect(mockSubmit).toHaveBeenCalledTimes(1);
+  //  expect(mockSubmit).toHaveBeenCalledTimes(1);
     // Optional: Assert values if using state management
+  
+  // To this:
+  /*
+  expect(mockSubmit).toHaveBeenCalledWith(
+  expect.arrayContaining([expect.anything()]) // Array is not empty
+);
+  */
+
+await waitFor(() => {
+  expect(mockSubmit).toHaveBeenCalledWith(expect.arrayContaining([expect.anything()]));
+});
+
+
+
   });
 
 
