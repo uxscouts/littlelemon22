@@ -34,7 +34,44 @@ function BookingPage() {
  const navigate = useNavigate();
 
 
+  // initial creation of the array for holding reservations
+  // must add new reservations to array using spread operator  
+// const [formData, setFormData] = useState({});
+const [reservations, setReservations] = useState([
+  { id: 1, 
+    name: "Samual L Jackson", 
+    email: "same@jackson.com",
+    phone: "222222",
+    guests: 7,
+    date: "2026-05-01", 
+    time: "18:00"}
+]);
 
+
+// 2. Function to add a new reservation
+const addReservation = (newBooking) => {
+  setReservations([
+    ...reservations, // Copy all existing bookings into the new array
+    newBooking       // Add the new object to the end
+  ]);
+};
+
+
+
+
+  const handleFormSubmit = async (formData) => {
+        const response = await submitAPI(formData);
+    if (response) {
+      const finalBooking = { id: Date.now(), ...formData };
+      addReservation(finalBooking);
+      console.log(reservations);
+      alert("Reservation confirmed!");
+     // navigate('/confirmedbooking');
+     navigate('/confirmedbooking', { state: { data: reservations } });
+    }
+  };
+
+{/*
     // this function handles onSubit for reducer
     // my goal is to have Reducer store values from onSubmit
     // but have State store locally with onChange
@@ -46,10 +83,10 @@ function BookingPage() {
       setFormData(data);
       // after setting form data to the state I will use the state
       // and send form data object to the confirmation page.
-     navigate('/confirmedbooking', { state: data });
+   //  navigate('/confirmedbooking', { state: data });
     }
   };
-
+*/}
 
 
   return (
@@ -65,11 +102,10 @@ function BookingPage() {
             dispatch={dispatch}
             onChildSubmit={handleFormSubmit} 
           />    
-          {formData && <p>Submitted: {JSON.stringify(formData)}</p>}
+          {reservations && <p>Submitted: {JSON.stringify(reservations)}</p>}
       </section>
     </main>
   );
 }
 
 export default BookingPage;
-

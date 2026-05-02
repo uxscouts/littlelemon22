@@ -1,19 +1,6 @@
-import React, { useState, useReducer } from "react";
+import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Table, Container } from "reactstrap";
 import { useBooking } from "../context/BookingContext";
-
-
-// reducer logic: this simple form reducer is used to 
-// put booking form data into state
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case 'UPDATE':
-      return { ...state, [action.field]: action.value };
-    default:
-      return state;
-  }
-};
-
 
 function BookingForm({ 
   availableTimes,
@@ -22,15 +9,13 @@ function BookingForm({
  // onSendData,  
   onChildSubmit
 }) {
-  
-
- // const { booking, updateBooking } = useBooking();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [guests, setGuests] = useState("1");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const { booking, updateBooking } = useBooking();
+  const [name, setName] = useState(booking.name || "");
+  const [email, setEmail] = useState(booking.email || "");
+  const [phone, setPhone] = useState(booking.phone || "");
+  const [guests, setGuests] = useState(booking.guests || "1");
+  const [date, setDate] = useState(booking.date || "");
+  const [time, setTime] = useState(booking.time || "");
 
 
 /*
@@ -83,6 +68,7 @@ function BookingForm({
     event.preventDefault(); // Stop reload
     const data = new FormData(event.target);
     const value = Object.fromEntries(data.entries()); // Convert to object
+    updateBooking(value.name, value.email, value.phone, value.guests, value.date, value.time);
     onChildSubmit(value); // Send up to parent
   };
 
