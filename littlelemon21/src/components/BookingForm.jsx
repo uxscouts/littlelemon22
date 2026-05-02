@@ -10,55 +10,14 @@ function BookingForm({
   onChildSubmit
 }) {
   const { booking, updateBooking } = useBooking();
-  const [name, setName] = useState(booking.name || "");
-  const [email, setEmail] = useState(booking.email || "");
-  const [phone, setPhone] = useState(booking.phone || "");
-  const [guests, setGuests] = useState(booking.guests || "1");
+  const [name, setName] = useState(booking.name || "Joe Smith");
+  const [email, setEmail] = useState(booking.email || "something@example.com");
+  const [phone, setPhone] = useState(booking.phone || "555-555-5555");
+  const [guests, setGuests] = useState(booking.guests || "4");
   const [date, setDate] = useState(booking.date || "");
   const [time, setTime] = useState(booking.time || "");
 
 
-/*
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = {
-      name,
-      email,
-      phone,
-      guests,
-      date,
-      time,
-    };
-    alert("onSubmit Triggered");
-    updateBooking(name, email, phone, guests, date, time);
-    if (onSubmit) {
-      onSubmit(formData);
-    }
-  };
-*/
-
-
-
-//  this code is using Reducer to send value to Booking page
-//this one uses the onChange to send values to pare nt
-// maybe delete this is I only use the Reducer for onSubmit
-/*
-  const [state, dispatch] = useReducer(formReducer, 
-    { 
-      name: '', 
-      email: '',
-    });
-*/
-
-    // this is for the Reducer onChange funtion
-    // maybe will delete if do only onSubmit for Reducer
-    // to send up to parent (booking page)
-    /*
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSendData(state);
-  }
-*/
 
   // use function uses Reducer to send data to parent
   // but it is different becuase it sends values via
@@ -94,6 +53,8 @@ function BookingForm({
   return (
     <>
     <Container className="mt-5 p-3 custom-border">
+      <h1>Reserve Form</h1>
+      <div className="BookingFormContainer">
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -116,6 +77,7 @@ function BookingForm({
             </tr>
         </tbody>
         </Table>
+        </div>
       </Container>
       <div className="BookingFormContainer">
         <Form
@@ -202,7 +164,7 @@ function BookingForm({
                   </div>
                 ))}
                 </div>
-          </FormGroup>                                               
+          </FormGroup>                                              
           <Button role="button" type="submit">submit</Button>
         </Form>
         </div>

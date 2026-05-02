@@ -1,9 +1,8 @@
-//import FormPage from './components/FormPage';
-import BookingPage from './components/BookingPage';
-function App({ title, userCount }) {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function App() {
   return(
     <>
-      {/* <BookingPage/> */}
     </>
   ) 
 }

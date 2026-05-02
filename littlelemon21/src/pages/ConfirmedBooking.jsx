@@ -6,6 +6,7 @@ const ConfirmedBooking = () => {
   const location = useLocation();
   const data = location.state;
   
+  console.log("Data received in ConfirmedBooking:", data);
 
   return (
     <Container>

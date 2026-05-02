@@ -6,7 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import RouterConfig from "./AppRoutes";
 import Footer from './components/Footer';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 

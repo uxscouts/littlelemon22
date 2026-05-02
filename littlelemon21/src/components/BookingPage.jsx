@@ -3,6 +3,7 @@ import BookingForm from "./BookingForm";
 import { fetchAPI } from "../API";
 import { submitAPI } from "../API2";
 import { useNavigate } from "react-router-dom";
+import { Form, FormGroup, Label, Input, Button, Table, Container } from "reactstrap";
 
 export const updateTimes = (state, action) => {
   switch (action.type) {
@@ -23,6 +24,7 @@ export const initializeTimes = () => {
   return fetchAPI(today);
 };
 
+// main function for BookingPage 
 function BookingPage() {
   const [availableTimes, dispatch] = useReducer(
     updateTimes, [], initializeTimes);
@@ -36,27 +38,24 @@ function BookingPage() {
 
   // initial creation of the array for holding reservations
   // must add new reservations to array using spread operator  
-// const [formData, setFormData] = useState({});
 const [reservations, setReservations] = useState([
   { id: 1, 
     name: "Samual L Jackson", 
     email: "same@jackson.com",
-    phone: "222222",
+    phone: "555-555-5555",
     guests: 7,
     date: "2026-05-01", 
     time: "18:00"}
 ]);
 
 
-// 2. Function to add a new reservation
+// Add a new reservation
 const addReservation = (newBooking) => {
   setReservations([
     ...reservations, // Copy all existing bookings into the new array
     newBooking       // Add the new object to the end
   ]);
 };
-
-
 
 
   const handleFormSubmit = async (formData) => {
@@ -71,28 +70,9 @@ const addReservation = (newBooking) => {
     }
   };
 
-{/*
-    // this function handles onSubit for reducer
-    // my goal is to have Reducer store values from onSubmit
-    // but have State store locally with onChange
-  const handleFormSubmit = async (data) => {
-        const response = await submitAPI(formData);
-    if (response) {
-      alert("Reservation confirmed!");
-      console.log('OnSubmit:: Data received in Parent:', data);
-      setFormData(data);
-      // after setting form data to the state I will use the state
-      // and send form data object to the confirmation page.
-   //  navigate('/confirmedbooking', { state: data });
-    }
-  };
-*/}
-
-
   return (
-    <main role="main">
-      <h1 id="booking-title">Reserve a Table</h1>
-      
+    <main role="main"> 
+    <p><Button variant="primary">Add Another</Button></p>     
       <section 
         aria-live="polite" 
         aria-atomic="true"
@@ -101,8 +81,9 @@ const addReservation = (newBooking) => {
             availableTimes={availableTimes} 
             dispatch={dispatch}
             onChildSubmit={handleFormSubmit} 
-          />    
-          {reservations && <p>Submitted: {JSON.stringify(reservations)}</p>}
+          />   
+          
+          {reservations && <div className="container"><p>Submitted: {JSON.stringify(reservations)}</p></div>}
       </section>
     </main>
   );
