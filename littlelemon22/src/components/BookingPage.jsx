@@ -72,7 +72,7 @@ const addReservation = (newBooking) => {
 
 
   return (
-    <main role="main">     
+    <main role="main">    
       <section 
         aria-live="polite" 
         aria-atomic="true"

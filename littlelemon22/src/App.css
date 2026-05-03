@@ -27,11 +27,6 @@ p {
   font-size: 106%;
   color: #666666;
 }
-/*  
-url("./assets/fonts/MarkaziText-Medium.ttf")
-url("./assets/fonts/MarkaziText-Regular.ttf")
-url("./assets/fonts/MarkaziText-SemiBold.ttf") 
-*/
 
 .salmon {
   color: #ee9972;
@@ -103,13 +98,6 @@ url("./assets/fonts/MarkaziText-SemiBold.ttf")
 }
 
 
-/*
-Super light blue
-Hex Code: #A5D4DF or #B0E9FF
-#fdf4ee; seaShell
-#f2f2f2; bgColor
-*/
-
 .title_special {
 color: #212121;
 font-family:'Georgia', serif;
@@ -161,8 +149,8 @@ h1, h2, h3, h4, h5, h6, label {
 
 
 .container2 {
-  display: inline-grid; /* Makes the container inline to its siblings */
-  grid-template-columns: auto auto auto; /* Defines the internal grid structure */
+  display: inline-grid; 
+  grid-template-columns: auto auto auto;
   background-color: dodgerblue;
   padding: 10px;
 }
@@ -176,22 +164,22 @@ h1, h2, h3, h4, h5, h6, label {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+  grid-template-columns: 1fr 1fr; 
   width: 100%;
   padding-top: 30px;
 }
 
 .item-left {
-  justify-self: start; /* Aligns the item to the left edge of its cell */
+  justify-self: start; 
   padding-left: 20px;
 }
 
 .item-right {
-  justify-self: end; /* Aligns the item to the right edge of its cell */
+  justify-self: end; 
   padding-right: 20px;
 }
 
-/* Ensure padding and border are included in the element's total width and height */
+
 * {
   box-sizing: border-box; /* */
 }
@@ -487,8 +475,6 @@ gap: 2em;
   font-size: 170%;          
 }
 
-
-
 .BookingFormContainer button {
   background-color: #ee9972;
   color: white;
@@ -526,4 +512,14 @@ gap: 2em;
 
 .box input[type='radio'] {
   transform: scale(2);
+}
+
+/* Style for invalid input */
+input:invalid {
+  border: 2px solid red;
+}
+
+/* Style for valid input */
+input:valid {
+  border: 2px solid green;
 }
